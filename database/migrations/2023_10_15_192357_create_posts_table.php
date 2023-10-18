@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('image')->nullable();
-            $table->text('video')->nullable();
-            $table->text('content')->nullable();
+            $table->longText('image')->nullable();
+            $table->longText('video')->nullable();
+            $table->longText('content')->nullable();
             $table->longText('body')->nullable();
             $table->enum('status' , \App\Models\Post::$status)->default(\App\Models\Post::STATUS_PENDING);
             $table->enum('confirmation_post' , \App\Models\Post::$confirmation)->default(\App\Models\Post::CONFIRMATION_BODY);

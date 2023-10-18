@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Categories;
+namespace App\repository\Categories;
 
 use App\Models\Category;
 use Illuminate\Support\Str;

@@ -32,10 +32,9 @@ class PostRepo
         return Post::query()->findOrFail($id);
     }
 
-    public function update( $request,  $id,  $file_path , $file): int
+    public function update( $request,  Post $id,  $file_path , $file): int
     {
-
-        return  Post::query()->where('id' , $id)->update([
+        return $id->update([
 //            'title' => $request->title,
 //            'slug' =>  SlugService::createSlug(Post::class, 'slug', $request->title) ,
             'image' => $file_path,

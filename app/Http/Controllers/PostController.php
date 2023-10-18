@@ -7,8 +7,8 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Tag;
-use App\Repository\ArticleRepo\ArticleRepo;
-use App\Repository\Categories\CategoryRepo;
+use App\repository\ArticleRepo\ArticleRepo;
+use App\repository\Categories\CategoryRepo;
 use App\repository\posts\PostRepo;
 use App\Services\Media\Images;
 use App\Services\Media\Files;
@@ -79,7 +79,6 @@ class PostController extends Controller
             $file_path = $this->images->handleUploadImageArticle($request->file('image'));
         }
         $this->postRepo->update($request, $posts, $file_path,  $file);
-        dd(12);
         $this->syncCategory($request, $posts, $categoryIds);
         $this->sync_update_tags($request, $posts);
 
