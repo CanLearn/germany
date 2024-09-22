@@ -1,0 +1,102 @@
+@media screen and (max-width: 1300px) {
+  .index-main .gallery-category__body .column__photo figure .image-info,
+  .category-main
+    .category-main_gallery__body
+    .column__photo
+    figure
+    .image-info {
+    flex-direction: column;
+    align-items: unset;
+    height: auto;
+  }
+}
+@media screen and (max-width: 992px) {
+  .index-header .container-body__iner {
+    flex-direction: column;
+  }
+  .index-header .container-body__iner_l {
+    order: 2;
+  }
+  .index-header .container-body__iner_r {
+    order: 1;
+    border: none;
+    width: 100%;
+    justify-content: unset;
+  }
+  .index-header .container-body__iner_r .bg-link-body {
+    flex: 1;
+    padding: 20px;
+  }
+  .index-header .container-body__iner_r .bg-link-body__iner {
+    max-width: 100%;
+    display: flex;
+    gap: 30px;
+  }
+  .index-header .container-body__iner_r .bg-link-body__iner-box {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+  }
+  .index-header .container-body__iner_l .personal-info {
+    margin: 20px;
+  }
+  .index-main .gallery-category__body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .index-main .gallery-category__body .column:last-child {
+    display: none;
+  }
+
+  .category-main .category-main_gallery__body {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 768px) {
+  .index-header .container-header .sm-menu-btn,
+  .sm-menu {
+    display: block;
+  }
+  .container-header__nav {
+    display: none;
+  }
+  .index-header .container-body .sm-menu,
+  .container-header .sm-menu-btn {
+    display: block;
+  }
+  .single-main__container {
+    flex-direction: column;
+  }
+  .imginfolg {
+    display: none;
+  }
+  .imginfosm {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .index-header .container-body__iner_r .bg-link-body__iner {
+    flex-direction: column;
+  }
+  .index-header .container-body__iner_r .bg-link-body__iner-box {
+    width: 80px;
+    height: 80px;
+  }
+  .index-main .gallery-category__body {
+    grid-template-columns: 1fr;
+  }
+  .index-main .gallery-category__body .column:last-child {
+    display: block;
+  }
+  .index-header .container-body .sm-menu ul li {
+    margin: 5px 10px;
+  }
+  .category-main .category-main_gallery {
+    display: block;
+  }
+  .category-main .category-main_gallery__title {
+    writing-mode: unset;
+    transform: unset;
+    text-align: left;
+    padding: 10px;
+  }
+}

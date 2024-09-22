@@ -1,0 +1,1 @@
+var answerButtons=document.querySelectorAll("#answerC");answerButtons.forEach(function(e){e.addEventListener("click",function(){var e=this.closest(".box").querySelector(".awbox");e&&e.classList.toggle("open")})});
