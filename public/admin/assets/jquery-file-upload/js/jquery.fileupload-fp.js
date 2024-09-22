@@ -69,7 +69,7 @@
         },
 
         processActions: {
-            // Loads the image given via data.files and data.index
+            // Loads the image given via data.files and data.landing
             // as img element if the browser supports canvas.
             // Accepts the options fileTypes (regular expression)
             // and maxFileSize (integer) to limit the files to load:
@@ -116,7 +116,7 @@
                 return data;
             },
             // Saves the processed image given as data.canvas
-            // inplace at data.index of data.files:
+            // inplace at data.landing of data.files:
             save: function (data, options) {
                 // Do nothing if no processing has happened:
                 if (!data.canvas) {
@@ -158,7 +158,7 @@
             }
         },
 
-        // Resizes the file at the given index and stores the created blob at
+        // Resizes the file at the given landing and stores the created blob at
         // the original position of the files list, returns a Promise object:
         _processFile: function (files, index, options) {
             var that = this,

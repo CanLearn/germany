@@ -9,7 +9,7 @@ class Files
     public function handleUploadFileArticle($file)
     {
              $file_name = md5(Str::random(15)). '.' . $file->getClientOriginalName();
-             $file->storeAs('files/articles/' , $file_name) ;
+             $file->storeAs('files/articles/video/' , $file_name) ;
              return $file_name ;
     }
 
