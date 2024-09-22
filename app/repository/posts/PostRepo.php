@@ -45,4 +45,20 @@ class PostRepo
             'user_id' => auth()->user()->id,
         ]);
     }
+
+    public function getFindlanding()
+    {
+        return Post::query()->where('status' , Post::STATUS_SUCCESS)
+            ->where('confirmation_post' , Post::CONFIRMATION_HEAD)
+            ->latest()
+            ->limit(3)
+            ->get();
+    }
+
+    public function getSlugSuccess($slug)
+    {
+        return Post::query()
+            ->where('slug' , $slug)
+            ->first();
+    }
 }

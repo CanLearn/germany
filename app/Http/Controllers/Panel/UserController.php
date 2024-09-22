@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index' , compact('users'));
+        return view('admin.users.landing' , compact('users'));
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends Controller
         $users->email = $request->email ;
         $users->password = Hash::make($request->password);
         $users->save();
-        return redirect()->route('panel.users.index');
+        return redirect()->route('panel.users.landing');
     }
 
     public function edit( $userId)
@@ -55,7 +55,7 @@ class UserController extends Controller
            'email' => $request->email,
            'password' => Hash::make($request->password)
        ]);
-        return redirect()->route('panel.users.index');
+        return redirect()->route('panel.users.landing');
     }
 
     /**
@@ -64,6 +64,6 @@ class UserController extends Controller
     public function destroy( $userId)
     {
         User::query()->where('id' , $userId)->delete();
-        return redirect()->route('panel.users.index');
+        return redirect()->route('panel.users.landing');
     }
 }

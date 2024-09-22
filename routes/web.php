@@ -1,9 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/' , [\App\Http\Controllers\Front\LandingController::class , 'index'])
-->name('landing.index');
+Route::name('landing.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Front\LandingController::class, 'index'])
+        ->name('index');
+    Route::get('categories/{categories:slug}' , [\App\Http\Controllers\Front\LandingController::class , 'category'])
+        ->name('category.slug');
+    Route::get('posts/{posts:slug}' ,
+        [\App\Http\Controllers\Front\LandingController::class , 'singlePost'])
+        ->name('single.post');
+});
 \Illuminate\Support\Facades\Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->name('panel.')->prefix('panel')->group(function () {

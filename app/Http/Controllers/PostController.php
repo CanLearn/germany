@@ -103,7 +103,6 @@ class PostController extends Controller
             Storage::delete('files/articles/' . $post->file);
         }
        $post = Post::query()->where('id' , $post)->delete();
-
         return redirect()->route('panel.posts.index');
     }
 

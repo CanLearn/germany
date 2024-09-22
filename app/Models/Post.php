@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Http\Traits\HasComments;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable , HasComments;
 
     protected $fillable = [
         'title',
@@ -75,4 +76,18 @@ class Post extends Model
     {
         return asset('images/articles/' . $this->image['original']);
     }
+
+    public function getVideo()
+    {
+        return asset('files/articles/video/' . $this->video);
+    }
+
+
+
+    public function path()
+    {
+        return route('landing.single.post',  $this->slug);
+    }
+
+
 }
