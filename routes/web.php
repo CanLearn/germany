@@ -2,13 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('admin.layouts.main');
-});
-
+Route::get('/' , [\App\Http\Controllers\Front\LandingController::class , 'index'])
+->name('landing.index');
 \Illuminate\Support\Facades\Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->name('panel.')->prefix('panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\Panel\DashboardController::class, 'index'])->name('dashboard');
