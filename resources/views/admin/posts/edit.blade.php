@@ -12,8 +12,8 @@
           href="{{ asset('admin/assets/bootstrap-colorpicker/css/colorpicker.css') }}"/>
     <link rel="stylesheet" type="text/css"
           href="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker.css') }}"/>
-    <link href="{{ asset('index/"css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('index/css/style-responsive.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('landing/"css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('landing/css/style-responsive.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('main')

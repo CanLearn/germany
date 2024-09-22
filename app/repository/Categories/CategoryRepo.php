@@ -10,28 +10,28 @@ class CategoryRepo
 {
     public function paginate()
     {
-       return Category::with('parent')->paginate();
+        return Category::with('parent')->paginate();
     }
 
     public function categoryParent()
     {
-        return Category::query()->where('parent_id' , null)->get();
+        return Category::query()->where('category_id', null)->get();
     }
 
     public function store($values)
     {
         return Category::create([
-            'name' =>$values->name,
+            'name' => $values->name,
             'slug' => Str::slug($values->slug),
-            'parent_id' =>$values->category_id,
-            'body' =>$values->body,
-            'user_id' => auth()->user()->id ,
+            'category_id' => $values->category_id,
+            'body' => $values->body,
+            'user_id' => auth()->user()->id,
         ]);
     }
 
     public function delete($id)
     {
-        return Category::query()->where('id' , $id)->delete();
+        return Category::query()->where('id', $id)->delete();
     }
 
     public function findById($id)
@@ -46,27 +46,27 @@ class CategoryRepo
         });
     }
 
-    public function update($categoryId , $values)
+    public function update($categoryId, $values)
     {
-        return Category::query()->where('id' , $categoryId)
+        return Category::query()->where('id', $categoryId)
             ->update([
-                'name' =>$values->name,
+                'name' => $values->name,
                 'slug' => Str::slug($values->slug),
-                'parent_id' =>$values->parent_id,
-                'body' =>$values->body,
-                'user_id' => auth()->user()->id ,
+                'category_id' => $values->category_id,
+                'body' => $values->body,
+                'user_id' => auth()->user()->id,
 
             ]);
     }
 
     public static function getCategory()
     {
-        return Category::query()->where('parent_id' , 0)->get();
+        return Category::query()->where('category_id', 0)->get();
     }
 
     public static function getParent($id)
     {
-        return Category::query()->where('parent_id' , $id)->get();
+        return Category::query()->where('category_id', $id)->get();
     }
 
     public function all()
@@ -76,16 +76,22 @@ class CategoryRepo
 
     public function pluck($category)
     {
-        return Category::where('name', $category)->get()->pluck('id')->toArray() ;
+        return Category::where('name', $category)->get()->pluck('id')->toArray();
     }
 
     public function search($request)
     {
-        return Category::query()->where('name' , 'LIKE' ,  "%{$request->search}%") ;
+        return Category::query()->where('name', 'LIKE', "%{$request->search}%");
     }
 
     public function updateConfirmationStatus($id, string $status)
     {
         return Category::query()->where('id', $id)->update(['confirmation_status' => $status]);
+    }
+
+    public function getSlugLanding($slug)
+    {
+        return Category::query()->where('slug', $slug)
+            ->first();
     }
 }
