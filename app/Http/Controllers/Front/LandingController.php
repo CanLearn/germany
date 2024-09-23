@@ -30,13 +30,13 @@ class LandingController extends Controller
     public function singlePost($slug)
     {
         $articleId = $this->extractId($slug, 'c');
-        $articlesRepo = (new PostRepo())->getSlugSuccess($slug);
-        $articlesRepo->load(['user', 'categories', 'comments' => function ($query) {
+        $posts = (new PostRepo())->getSlugSuccess($slug);
+        $posts->load(['user', 'categories', 'comments' => function ($query) {
             return $query->where('comment_id', null)->where('status', Comment::STATUS_APPROVED);
         }])->loadCount('comments');
-        Cache::add('__Articles__Single__Page__route__' . $articlesRepo->title, $articlesRepo,
+        Cache::add('__Articles__Single__Page__route__' . $posts->title, $posts,
             now()->addMinutes(300));
-        return view('front.single.landing', compact('articlesRepo'));
+        return view('front.single.landing', compact('posts'));
     }
 
     public function extractId($slug, $key)

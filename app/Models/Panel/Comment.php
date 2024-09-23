@@ -3,6 +3,7 @@
 namespace App\Models\Panel;
 
 use App\Http\Traits\HasComments;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,7 +41,7 @@ class Comment extends Model
         return $this->belongsTo(Comment::class);
     }
 
-    public function comments()
+    public function reply()
     {
         return $this->hasMany(Comment::class);
     }
