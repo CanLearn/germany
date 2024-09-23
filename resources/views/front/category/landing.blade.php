@@ -26,7 +26,7 @@
                             <div class="column__photo">
                                 <figure>
                                     <figcaption>{{ $post->title  }}</figcaption>
-                                    <a href="">
+                                    <a href="{{ $post->path()  }}">
                                         <video autoplay loop>
                                             <source src="{{ $post->getVideo()  }}" type="video/mp4">
                                             {{ $post->content  }}
@@ -34,25 +34,32 @@
                                     </a>
                                     <div class="image-info">
                                         <div class="comment-counter">
-                                            Anzahl der Kommentare : <span>73</span><span>Kommentar</span>
+                                            Anzahl der Kommentare :
+                                            <span>
+                                            @php
+                                                $count = $post->loadCount('comments') ;
+                                            @endphp
+                                                {{ $post->comments_count }}
+                                        </span>
+                                            <span>Kommentar</span>
                                         </div>
-                                        <div class="rating-show">
-                                              <span class="rating-star checked">
-                                                ★
-                                              </span>
-                                                                        <span class="rating-star checked">
-                                                ★
-                                              </span>
-                                                                        <span class="rating-star">
-                                                ★
-                                              </span>
-                                                                        <span class="rating-star">
-                                                ★
-                                              </span>
-                                                                        <span class="rating-star">
-                                                ★
-                                              </span>
-                                        </div>
+{{--                                        <div class="rating-show">--}}
+{{--                                              <span class="rating-star checked">--}}
+{{--                                                ★--}}
+{{--                                              </span>--}}
+{{--                                                                        <span class="rating-star checked">--}}
+{{--                                                ★--}}
+{{--                                              </span>--}}
+{{--                                                                        <span class="rating-star">--}}
+{{--                                                ★--}}
+{{--                                              </span>--}}
+{{--                                                                        <span class="rating-star">--}}
+{{--                                                ★--}}
+{{--                                              </span>--}}
+{{--                                                                        <span class="rating-star">--}}
+{{--                                                ★--}}
+{{--                                              </span>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </figure>
                             </div>
@@ -63,27 +70,34 @@
                                     <figcaption>{{ $post->title  }}
                                     </figcaption>
                                 </a>
-                                <a href=""><img src="" alt=""></a>
+                                <a href="{{  $post->path()  }}"><img src="{{ $post->getImagethree()  }}" alt=""></a>
                                 <div class="image-info">
                                     <div class="comment-counter">
-                                        Anzahl der Kommentare : <span>73</span><span>Kommentar</span>
+                                        Anzahl der Kommentare :
+                                        <span>
+                                            @php
+                                            $count = $post->loadCount('comments') ;
+                                            @endphp
+                                            {{ $post->comments_count }}
+                                        </span>
+                                        Kommentar</span>
                                     </div>
                                     <div class="rating-show">
-                                          <span class="rating-star checked">
-                                            ★
-                                          </span>
-                                                                <span class="rating-star checked">
-                                            ★
-                                          </span>
-                                                                <span class="rating-star">
-                                            ★
-                                          </span>
-                                                                <span class="rating-star">
-                                            ★
-                                          </span>
-                                                                <span class="rating-star">
-                                            ★
-                                          </span>
+{{--                                          <span class="rating-star checked">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star checked">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
                                     </div>
                                 </div>
                             </figure>

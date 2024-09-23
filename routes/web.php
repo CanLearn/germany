@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/test', function () {
+    return view('welcome');
+});
 Route::name('landing.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Front\LandingController::class, 'index'])
         ->name('index');
@@ -11,7 +16,6 @@ Route::name('landing.')->group(function () {
         [\App\Http\Controllers\Front\LandingController::class, 'singlePost'])
         ->name('single.post');
 });
-\Illuminate\Support\Facades\Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->name('panel.')->prefix('panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\Panel\DashboardController::class, 'index'])->name('dashboard');
@@ -25,3 +29,5 @@ Route::middleware('auth')->name('panel.')->prefix('panel')->group(function () {
     Route::put('/confirm-post/{post}', [\App\Http\Controllers\PostController::class, 'confirm'])->name('posts.confirm');
 
 });
+
+require __DIR__ . '/auth.php';

@@ -7,261 +7,71 @@
             <h1> Beiträge<sub>Neueste Beiträge </sub></h1>
             <div class="gallery-category__body">
                 <div class="column">
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href="">
-                                <video autoplay loop>
-                                    <source src="assets/images/v1.mp4" type="video/mp4">
-                                    Ihr Browser unterstützt das Video nicht
-                                </video>
-                            </a>
-                            <div class="image-info">
-                                <div class="comment-counter">
-                                    Anzahl der Kommentare : <span>73</span><span>Kommentar</span>
-                                </div>
-                                <div class="rating-show">
-                  <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                </div>
+                   @foreach($posts as $post )
+                       @if($post->video)
+                            <div class="column__photo">
+                                <figure>
+                                    <figcaption>Bildunterschrift</figcaption>
+                                    <a href="">
+                                        <video autoplay loop>
+                                            <source src="{{ $post->getVideo()  }}" type="video/mp4">
+                                            {{ $post->title  }}
+                                        </video>
+                                    </a>
+                                    <div class="image-info">
+                                        <div class="comment-counter">
+                                            Anzahl der Kommentare : <span>{{ $comments_count  }}</span><span>Kommentar</span>
+                                        </div>
+{{--                                        <div class="rating-show">--}}
+{{--                                                  <span class="rating-star checked">--}}
+{{--                                                    ★--}}
+{{--                                                  </span>--}}
+{{--                                                        <span class="rating-star checked">--}}
+{{--                                                    ★--}}
+{{--                                                  </span>--}}
+{{--                                                        <span class="rating-star">--}}
+{{--                                                    ★--}}
+{{--                                                  </span>--}}
+{{--                                                        <span class="rating-star">--}}
+{{--                                                    ★--}}
+{{--                                                  </span>--}}
+{{--                                                        <span class="rating-star">--}}
+{{--                                                    ★--}}
+{{--                                                  </span>--}}
+{{--                                        </div>--}}
+                                    </div>
+                                </figure>
                             </div>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a2.jpg" alt=""></a>
-                            <div class="image-info">
-                                <div class="comment-counter">
-                                    Anzahl der Kommentare : <span>73</span><span>Kommentar</span>
+                        @endif
+                        <div class="column__photo">
+                            <figure>
+                                <figcaption>{{ $post->title  }}</figcaption>
+                                <a href="{{ $post->path()  }}"><img src="{{ $post->getImagethree()  }}" alt="{{ $post->title  }}"></a>
+                                <div class="image-info">
+                                    <div class="comment-counter">
+                                        Anzahl der Kommentare : <span>{{ $post->comments_count  }}</span><span>Kommentar</span>
+                                    </div>
+{{--                                    <div class="rating-show">--}}
+{{--                                          <span class="rating-star checked">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star checked">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                                                <span class="rating-star">--}}
+{{--                                            ★--}}
+{{--                                          </span>--}}
+{{--                                    </div>--}}
                                 </div>
-                                <div class="rating-show">
-                  <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a3.jpg" alt=""></a>
-                            <div class="image-info">
-                                <div class="comment-counter">
-                                    Anzahl der Kommentare : <span>73</span><span>Kommentar</span>
-                                </div>
-                                <div class="rating-show">
-                  <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star checked">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                    <span class="rating-star">
-                    ★
-                  </span>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a4.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a5.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a6.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a7.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a8.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a9.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a10.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a10.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a9.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a8.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a7.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a6.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a5.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a4.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a3.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a2.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a1.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a8.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a5.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a4.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a1.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a3.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a7.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a10.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a6.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a9.jpg" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="column__photo">
-                        <figure>
-                            <figcaption>Bildunterschrift</figcaption>
-                            <a href=""><img src="assets/images/a2.jpg" alt=""></a>
-                        </figure>
-                    </div>
+                            </figure>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

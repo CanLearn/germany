@@ -61,4 +61,19 @@ class PostRepo
             ->where('slug' , $slug)
             ->first();
     }
+
+    public function rondomItem()
+    {
+        return Post::query()->
+        where('confirmation_post' , 'head')
+        ->inRandomOrder()->limit(3)->get();
+    }
+
+    public function rondomLanding()
+    {
+        return Post::query()->
+        where('status' , Post::STATUS_SUCCESS)
+            ->withCount('comments')
+            ->inRandomOrder()->paginate(30);
+    }
 }

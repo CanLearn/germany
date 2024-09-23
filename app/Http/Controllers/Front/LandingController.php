@@ -13,9 +13,8 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $categories = (new CategoryRepo())->categoryParent();
-        $posts_head = (new PostRepo())->getFindlanding();
-        return view('front.landing.landing' , compact('categories' , 'posts_head'));
+        $posts = (new PostRepo())->rondomLanding();
+        return view('front.landing.landing' , compact( 'posts'));
     }
 
     public function category($slug)

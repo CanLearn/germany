@@ -152,7 +152,7 @@ class PostController extends Controller
 
     public function confirm($id)
     {
-        if($this->postRepo->confirmation($id , Post::STATUS_GOOD))
+        if($this->postRepo->confirmation($id , Post::STATUS_SUCCESS))
         {
             return back();
         }
