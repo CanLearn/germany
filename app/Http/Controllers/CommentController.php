@@ -16,7 +16,7 @@ class CommentController extends Controller
             ->searchName(request("name"))
             ->searchStatus(request("status"))
             ->paginateParents();
-        return view('panel.commnets.index'  , compact('comments')) ;
+        return view('admin.comments.index'  , compact('comments')) ;
     }
 
     public function store(StoreCommentRequest $request)

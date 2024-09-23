@@ -1,7 +1,7 @@
-{{--@extends('front.layout.main')--}}
+@extends('front.layout.main')
 
-{{--@section('css')--}}
-{{--    <link rel="stylesheet" href="{{ asset('landing/assets/css/header.css')  }}">--}}
+@section('css')
+    <link rel="stylesheet" href="{{ asset('landing/assets/css/header.css')  }}">
     <link rel="stylesheet" href="{{ asset('landing/assets/css/single.css')  }}">
 
 @endsection
@@ -16,28 +16,28 @@
                 </h1>
             </div>
             <div class="image-rating imginfosm">
-{{--                <div class="rating-show">--}}
-                {{--          <span class="rating-star checked">--}}
-                {{--            ★--}}
-                {{--          </span>--}}
-                {{--                    <span class="rating-star checked">--}}
-                {{--            ★--}}
-                {{--          </span>--}}
-                {{--                    <span class="rating-star">--}}
-                {{--            ★--}}
-                {{--          </span>--}}
-                {{--                    <span class="rating-star">--}}
-                {{--            ★--}}
-                {{--          </span>--}}
-                {{--                    <span class="rating-star">--}}
-                {{--            ★--}}
-                {{--          </span>--}}
-{{--                </div>--}}
+                <div class="rating-show">
+                          <span class="rating-star checked">
+                            ★
+                          </span>
+                                    <span class="rating-star checked">
+                            ★
+                          </span>
+                                    <span class="rating-star">
+                            ★
+                          </span>
+                                    <span class="rating-star">
+                            ★
+                          </span>
+                                    <span class="rating-star">
+                            ★
+                          </span>
+                </div>
             </div>
             <div class="image-show">
                 <div class="image-show-box">
                     <figure>
-{{--                        <img src="{{ $post->getImagethree()  }}" alt="{{ $post->title  }}">--}}
+                        <img src="{{ $posts->getImagethree()  }}" alt="{{ $posts->title  }}">
                     </figure>
                 </div>
             </div>
@@ -47,25 +47,25 @@
                         {{ $posts->title  }}
                     </h1>
                 </div>
-{{--                <div class="image-rating imginfolg">--}}
-{{--                    <div class="rating-show">--}}
-{{--                            <span class="rating-star checked">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star checked">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="image-rating imginfolg">
+                    <div class="rating-show">
+                            <span class="rating-star checked">
+                              ★
+                            </span>
+                        <span class="rating-star checked">
+                              ★
+                            </span>
+                        <span class="rating-star">
+                              ★
+                            </span>
+                        <span class="rating-star">
+                              ★
+                            </span>
+                        <span class="rating-star">
+                              ★
+                            </span>
+                    </div>
+                </div>
                 <div class="image-comment">
                     <h3>Ihre Ansicht</h3>
                     <div class="lcomment">

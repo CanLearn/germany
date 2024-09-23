@@ -26,7 +26,7 @@ Route::middleware('auth')->name('panel.')->prefix('panel')->group(function () {
     Route::resource('users', \App\Http\Controllers\Panel\UserController::class)->except('show');
     Route::put('/good-post/{post}', [\App\Http\Controllers\PostController::class, 'good'])->name('posts.good');
     Route::put('/reject-post/{post}', [\App\Http\Controllers\PostController::class, 'reject'])->name('posts.reject');
-    Route::put('/confirm-post/{post}', [\App\Http\Controllers\PostController::class, 'confirm'])->name('posts.confirm');
+    Route::put('/confirm-post/{post}', [\App\Http\Controllers\PostController::class, 'cofirm'])->name('posts.confirm');
 
 });
 

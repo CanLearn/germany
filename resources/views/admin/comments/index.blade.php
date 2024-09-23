@@ -10,40 +10,44 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            CATEGORY
+                            Comment
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
                                 <th><i class="icon-id"></i> id</th>
-                                <th class=""><i class=""></i> name category</th>
                                 <th class=""><i class=""></i> name user</th>
-
-                                <th><i class="icon-email"></i> parent</th>
+                                <th class=""><i class=""></i> email user</th>
+                                <th class=""><i class=""></i> post id</th>
                                 <th>setting</th>
                             </tr>
                             </thead>
                             <tbody>
-                           @foreach($categories as $category)
-                               <tr>
-                                   <td><a href="#">{{ $category->id  }}</a></td>
-                                   <td class="hidden-phone">{{ $category->name  }}</td>
-                                   <td>{{ $category->user->name  }}</td>
-                                   <td>{{ $category->getParentName()  }}</td>
-                                   <td>
-                                       <button class="btn btn-primary btn-xs">
-                                           <i class="icon-pencil"><a href="{{ route('panel.category.edit' , $category->id)  }}">edit</a></i></button>
-                                       <button class="btn btn-danger btn-xs">
-                                           <i class="icon-trash "><a onclick="destroyUser(event, {{ $category->id }})">delete</a></i></button>
-                                   </td>
-                               </tr>
+                            @foreach($comments as $comment)
+                                <tr>
+                                    <td><a href="#">{{ $comment->id  }}</a></td>
+                                    <td>{{ $comment->user->name  }}</td>
+                                    <td>{{ $comment->user->email  }}</td>
+                                    <td>
+                                        <a href="{{ $comment->commentable->path() }}">{{ $comment->commentable->title }}</a>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs">
+                                            <i class="icon-pencil"><a
+                                                    href="{{ route('panel.category.edit' , $comment->id)  }}">edit</a></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-xs">
+                                            <i class="icon-trash "><a onclick="destroyUser(event, {{ $comment->id }})">delete</a></i>
+                                        </button>
+                                    </td>
+                                </tr>
 
-                               <form action="{{ route('panel.category.destroy', $category->id) }}" method="post"
-                                     id="destroy-user-{{ $category->id }}">
-                                   @csrf
-                                   @method('delete')
-                               </form>
-                           @endforeach
+                                <form action="{{ route('panel.category.destroy', $comment->id) }}" method="post"
+                                      id="destroy-user-{{ $comment->id }}">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                            @endforeach
                             </tbody>
                         </table>
                     </section>

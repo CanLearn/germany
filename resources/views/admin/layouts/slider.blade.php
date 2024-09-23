@@ -52,6 +52,16 @@
                     <li><a class="" href="{{ route('panel.tags.create')  }}">create post</a></li>
                 </ul>
             </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon-tasks"></i>
+                    <span>comments Gallery</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="{{ route('panel.comments.index')  }}">index post</a></li>
+                </ul>
+            </li>
             <li>
                 <a class="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
                     <i class="icon-user" ></i>
