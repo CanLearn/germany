@@ -1,6 +1,6 @@
 <div class="container-header">
     <div class="container-header__logo">
-        <a href="">Amin</a>
+        <a href="{{ route('landing.index')  }}">Amin</a>
     </div>
     <div class="container-header__nav">
         <ul>

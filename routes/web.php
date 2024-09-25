@@ -16,8 +16,10 @@ Route::name('landing.')->group(function () {
         [\App\Http\Controllers\Front\LandingController::class, 'singlePost'])
         ->name('single.post');
 });
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::middleware(['role:manager', 'auth'])->name('panel.')->prefix('panel')->group(function () {
+Route::middleware(['check.role', 'role:manager', 'auth'])->name('panel.')->prefix('panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\Panel\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('posts', \App\Http\Controllers\PostController::class)->except('show');
     Route::resource('category', \App\Http\Controllers\CategoryController::class);
@@ -29,5 +31,4 @@ Route::middleware(['role:manager', 'auth'])->name('panel.')->prefix('panel')->gr
     Route::put('/confirm-post/{post}', [\App\Http\Controllers\PostController::class, 'confirm'])->name('posts.confirm');
 
 });
-
 require __DIR__ . '/auth.php';

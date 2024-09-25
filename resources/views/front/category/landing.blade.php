@@ -16,8 +16,11 @@
         </div>
         <section class="category-main_gallery">
             <div class="category-main_gallery__title">
-                <h1>Natur</h1>
-                <h5>Diese Kategorisierung wurde am <span>5. Mai 2020</span> erstellt.</h5>
+                <h1>{{ $categories->name  }}</h1>
+
+                <h5>Diese Kategorisierung wurde am
+                    <span>{{  Carbon\Carbon::create($categories->created_at)->format('j. F Y') }}</span>
+                    erstellt.</h5>
             </div>
             <div class="category-main_gallery__body">
                 <div class="column">
@@ -43,23 +46,23 @@
                                         </span>
                                             <span>Kommentar</span>
                                         </div>
-{{--                                        <div class="rating-show">--}}
-{{--                                              <span class="rating-star checked">--}}
-{{--                                                ★--}}
-{{--                                              </span>--}}
-{{--                                                                        <span class="rating-star checked">--}}
-{{--                                                ★--}}
-{{--                                              </span>--}}
-{{--                                                                        <span class="rating-star">--}}
-{{--                                                ★--}}
-{{--                                              </span>--}}
-{{--                                                                        <span class="rating-star">--}}
-{{--                                                ★--}}
-{{--                                              </span>--}}
-{{--                                                                        <span class="rating-star">--}}
-{{--                                                ★--}}
-{{--                                              </span>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="rating-show">--}}
+                                        {{--                                              <span class="rating-star checked">--}}
+                                        {{--                                                ★--}}
+                                        {{--                                              </span>--}}
+                                        {{--                                                                        <span class="rating-star checked">--}}
+                                        {{--                                                ★--}}
+                                        {{--                                              </span>--}}
+                                        {{--                                                                        <span class="rating-star">--}}
+                                        {{--                                                ★--}}
+                                        {{--                                              </span>--}}
+                                        {{--                                                                        <span class="rating-star">--}}
+                                        {{--                                                ★--}}
+                                        {{--                                              </span>--}}
+                                        {{--                                                                        <span class="rating-star">--}}
+                                        {{--                                                ★--}}
+                                        {{--                                              </span>--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                 </figure>
                             </div>
@@ -76,28 +79,28 @@
                                         Anzahl der Kommentare :
                                         <span>
                                             @php
-                                            $count = $post->loadCount('comments') ;
+                                                $count = $post->loadCount('comments') ;
                                             @endphp
                                             {{ $post->comments_count }}
                                         </span>
                                         Kommentar</span>
                                     </div>
                                     <div class="rating-show">
-{{--                                          <span class="rating-star checked">--}}
-{{--                                            ★--}}
-{{--                                          </span>--}}
-{{--                                                                <span class="rating-star checked">--}}
-{{--                                            ★--}}
-{{--                                          </span>--}}
-{{--                                                                <span class="rating-star">--}}
-{{--                                            ★--}}
-{{--                                          </span>--}}
-{{--                                                                <span class="rating-star">--}}
-{{--                                            ★--}}
-{{--                                          </span>--}}
-{{--                                                                <span class="rating-star">--}}
-{{--                                            ★--}}
-{{--                                          </span>--}}
+                                        {{--                                          <span class="rating-star checked">--}}
+                                        {{--                                            ★--}}
+                                        {{--                                          </span>--}}
+                                        {{--                                                                <span class="rating-star checked">--}}
+                                        {{--                                            ★--}}
+                                        {{--                                          </span>--}}
+                                        {{--                                                                <span class="rating-star">--}}
+                                        {{--                                            ★--}}
+                                        {{--                                          </span>--}}
+                                        {{--                                                                <span class="rating-star">--}}
+                                        {{--                                            ★--}}
+                                        {{--                                          </span>--}}
+                                        {{--                                                                <span class="rating-star">--}}
+                                        {{--                                            ★--}}
+                                        {{--                                          </span>--}}
                                     </div>
                                 </div>
                             </figure>

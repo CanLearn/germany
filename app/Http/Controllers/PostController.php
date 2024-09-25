@@ -90,18 +90,6 @@ class PostController extends Controller
      */
     public function destroy($post)
     {
-        if (File::exists(public_path('/images/articles/' . $post->image['900']))) {
-            File::delete(public_path('/images/articles/' . $post->image['900']));
-        }
-        if (File::exists(public_path('/images/articles/' . $post->image['300']))) {
-            File::delete(public_path('/images/articles/' . $post->image['300']));
-        }
-        if (File::exists(public_path('/images/articles/' . $post->image['original']))) {
-            File::delete(public_path('/images/articles/' . $post->image['original']));
-        }
-        if (Storage::exists('files/articles/' . $post->file)) {
-            Storage::delete('files/articles/' . $post->file);
-        }
        $post = Post::query()->where('id' , $post)->delete();
         return redirect()->route('panel.posts.index');
     }
