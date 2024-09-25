@@ -24,12 +24,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                           @foreach($comments as $comment)
+                           @foreach($categories as $category)
                                <tr>
-                                   <td><a href="#">{{ $comment->id  }}</a></td>
-                                   <td class="hidden-phone">{{ $comment->name  }}</td>
-                                   <td>{{ $comment->user->name  }}</td>
-                                   <td>{{  $comment->user->email   }}</td>
+                                   <td><a href="#">{{ $category->id  }}</a></td>
+                                   <td class="hidden-phone">{{ $category->name  }}</td>
+                                   <td>{{ $category->user->name  }}</td>
+                                   <td>{{ $category->getParentName()  }}</td>
                                    <td>
                                        <button class="btn btn-primary btn-xs">
                                            <i class="icon-pencil"><a href="{{ route('panel.category.edit' , $category->id)  }}">edit</a></i></button>
