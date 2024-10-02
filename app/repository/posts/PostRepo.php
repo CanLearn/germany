@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 class PostRepo
 {
 
-    public function create($value ,  array $file_path, ?string $file)
+    public function create($value ,  $file_path, ?string $file)
     {
         return  Post::query()->create([
             'title' => $value->title,

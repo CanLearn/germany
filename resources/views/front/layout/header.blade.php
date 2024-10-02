@@ -35,7 +35,7 @@
                         @foreach((new \App\repository\posts\PostRepo())->rondomItem() as $item)
                             <div class="bg-link-body__iner-box">
                                 <figure class="image-place">
-                                    <img class="bg-image def-image" src="{{ $item->getImagetNine()  }}"
+                                    <img class="bg-image def-image" src="{{ $item->getImageUrl()  }}"
                                          alt="{{ $item->title }}">
                                 </figure>
                             </div>

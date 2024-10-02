@@ -46,7 +46,7 @@
                         <div class="column__photo">
                             <figure>
                                 <figcaption>{{ $post->title  }}</figcaption>
-                                <a href="{{ $post->path()  }}"><img src="{{ $post->getImagethree()  }}" alt="{{ $post->title  }}"></a>
+                                <a href="{{ $post->path()  }}"><img src="{{ $post->getImageUrl()  }}" alt="{{ $post->title  }}"></a>
                                 <div class="image-info">
                                     <div class="comment-counter">
                                         Anzahl der Kommentare : <span>{{ $post->comments_count  }}</span><span>Kommentar</span>

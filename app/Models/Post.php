@@ -22,9 +22,7 @@ class Post extends Model
         'status',
         'user_id'
         ];
-    protected $casts = [
-        'image' => 'array',
-    ];
+
     public function sluggable(): array
     {
         return [
@@ -89,5 +87,9 @@ class Post extends Model
         return route('landing.single.post',  $this->slug);
     }
 
+
+    public function getImageUrl(){
+        return asset('images/articles/'. $this->image);
+    }
 
 }

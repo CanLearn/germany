@@ -73,7 +73,7 @@
                                     <figcaption>{{ $post->title  }}
                                     </figcaption>
                                 </a>
-                                <a href="{{  $post->path()  }}"><img src="{{ $post->getImagethree()  }}" alt=""></a>
+                                <a href="{{  $post->path()  }}"><img src="{{ $post->getImageUrl()  }}" alt=""></a>
                                 <div class="image-info">
                                     <div class="comment-counter">
                                         Anzahl der Kommentare :

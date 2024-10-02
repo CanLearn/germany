@@ -37,7 +37,7 @@
             <div class="image-show">
                 <div class="image-show-box">
                     <figure>
-                        <img src="{{ $posts->getImagethree()  }}" alt="{{ $posts->title  }}">
+                        <img src="{{ $posts->getImageUrl() }}" alt="{{ $posts->title  }}">
                     </figure>
                 </div>
             </div>
