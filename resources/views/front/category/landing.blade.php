@@ -46,23 +46,17 @@
                                         </span>
                                             <span>Kommentar</span>
                                         </div>
-                                        {{--                                        <div class="rating-show">--}}
-                                        {{--                                              <span class="rating-star checked">--}}
-                                        {{--                                                ★--}}
-                                        {{--                                              </span>--}}
-                                        {{--                                                                        <span class="rating-star checked">--}}
-                                        {{--                                                ★--}}
-                                        {{--                                              </span>--}}
-                                        {{--                                                                        <span class="rating-star">--}}
-                                        {{--                                                ★--}}
-                                        {{--                                              </span>--}}
-                                        {{--                                                                        <span class="rating-star">--}}
-                                        {{--                                                ★--}}
-                                        {{--                                              </span>--}}
-                                        {{--                                                                        <span class="rating-star">--}}
-                                        {{--                                                ★--}}
-                                        {{--                                              </span>--}}
-                                        {{--                                        </div>--}}
+                                        <div class="rating-show">
+                                            <span>{{ number_format($post->averageRating(), 1) }}</span>
+                                            <div class="rating-show">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <span
+                                                        class="rating-star {{ $i <= $post->averageRating() ? 'checked' : '' }}">
+                                                    ★
+                                                </span>
+                                                @endfor
+                                            </div>
+                                        </div>
                                     </div>
                                 </figure>
                             </div>
@@ -86,21 +80,15 @@
                                         Kommentar</span>
                                     </div>
                                     <div class="rating-show">
-                                        {{--                                          <span class="rating-star checked">--}}
-                                        {{--                                            ★--}}
-                                        {{--                                          </span>--}}
-                                        {{--                                                                <span class="rating-star checked">--}}
-                                        {{--                                            ★--}}
-                                        {{--                                          </span>--}}
-                                        {{--                                                                <span class="rating-star">--}}
-                                        {{--                                            ★--}}
-                                        {{--                                          </span>--}}
-                                        {{--                                                                <span class="rating-star">--}}
-                                        {{--                                            ★--}}
-                                        {{--                                          </span>--}}
-                                        {{--                                                                <span class="rating-star">--}}
-                                        {{--                                            ★--}}
-                                        {{--                                          </span>--}}
+                                        <span>{{ number_format($post->averageRating(), 1) }}</span>
+                                        <div class="rating-show">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                <span
+                                                    class="rating-star {{ $i <= $post->averageRating() ? 'checked' : '' }}">
+                                                    ★
+                                                </span>
+                                            @endfor
+                                        </div>
                                     </div>
                                 </div>
                             </figure>

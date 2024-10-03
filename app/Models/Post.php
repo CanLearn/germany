@@ -92,4 +92,14 @@ class Post extends Model
         return asset('images/articles/'. $this->image);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    // محاسبه‌ی میانگین امتیازها
+    public function averageRating()
+    {
+        return $this->ratings()->avg('rating');
+    }
 }

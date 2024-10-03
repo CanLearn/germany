@@ -47,23 +47,35 @@
                         {{ $posts->title  }}
                     </h1>
                 </div>
+
+{{--                <div class="image-rating imginfolg">--}}
+{{--                    <span>   {{ number_format($posts->averageRating(), 1) }}</span>--}}
+{{--                    <div class="rating-show">--}}
+{{--                        <span class="rating-star checked">--}}
+{{--                          ★--}}
+{{--                        </span>--}}
+{{--                        <span class="rating-star checked">--}}
+{{--                              ★--}}
+{{--                            </span>--}}
+{{--                        <span class="rating-star">--}}
+{{--                              ★--}}
+{{--                            </span>--}}
+{{--                        <span class="rating-star">--}}
+{{--                              ★--}}
+{{--                            </span>--}}
+{{--                        <span class="rating-star">--}}
+{{--                              ★--}}
+{{--                            </span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="image-rating imginfolg">
+                    <span>{{ number_format($posts->averageRating(), 1) }}</span>
                     <div class="rating-show">
-                            <span class="rating-star checked">
-                              ★
+                        @for ($i = 1; $i <= 5; $i++)
+                            <span class="rating-star {{ $i <= $posts->averageRating() ? 'checked' : '' }}">
+                                ★
                             </span>
-                        <span class="rating-star checked">
-                              ★
-                            </span>
-                        <span class="rating-star">
-                              ★
-                            </span>
-                        <span class="rating-star">
-                              ★
-                            </span>
-                        <span class="rating-star">
-                              ★
-                            </span>
+                        @endfor
                     </div>
                 </div>
                 <div class="image-comment">
@@ -75,19 +87,8 @@
                             <textarea name="body" id="" placeholder="Ihr Kommentar"></textarea>
                             <input type="hidden" name="commentable_type" value="{{ get_class($posts) }}">
                             <input type="hidden" name="commentable_id" value="{{ $posts->id }}">
-                            <div class="title">Ihre Bewertung</div>
-                            {{--                            <div class="rating">--}}
-                            {{--                                <input value="1" name="rate" id="star1" type="radio">--}}
-                            {{--                                <label for="star1"></label>--}}
-                            {{--                                <input value="2" name="rate" id="star2" type="radio">--}}
-                            {{--                                <label for="star2"></label>--}}
-                            {{--                                <input value="3" name="rate" id="star3" type="radio">--}}
-                            {{--                                <label for="star3"></label>--}}
-                            {{--                                <input value="4" name="rate" id="star4" type="radio">--}}
-                            {{--                                <label for="star4"></label>--}}
-                            {{--                                <input value="5" name="rate" id="star5" type="radio">--}}
-                            {{--                                <label for="star5"></label>--}}
-                            {{--                            </div>--}}
+                            <livewire:post-rating :post="$posts" />
+
                             <button type="submit">Registrieren Sie einen Kommentar</button>
                         </form>
                     </div>
