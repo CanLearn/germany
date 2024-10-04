@@ -20,16 +20,16 @@
                           <span class="rating-star checked">
                             ★
                           </span>
-                                    <span class="rating-star checked">
+                    <span class="rating-star checked">
                             ★
                           </span>
-                                    <span class="rating-star">
+                    <span class="rating-star">
                             ★
                           </span>
-                                    <span class="rating-star">
+                    <span class="rating-star">
                             ★
                           </span>
-                                    <span class="rating-star">
+                    <span class="rating-star">
                             ★
                           </span>
                 </div>
@@ -47,27 +47,6 @@
                         {{ $posts->title  }}
                     </h1>
                 </div>
-
-{{--                <div class="image-rating imginfolg">--}}
-{{--                    <span>   {{ number_format($posts->averageRating(), 1) }}</span>--}}
-{{--                    <div class="rating-show">--}}
-{{--                        <span class="rating-star checked">--}}
-{{--                          ★--}}
-{{--                        </span>--}}
-{{--                        <span class="rating-star checked">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                        <span class="rating-star">--}}
-{{--                              ★--}}
-{{--                            </span>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
                 <div class="image-rating imginfolg">
                     <span>{{ number_format($posts->averageRating(), 1) }}</span>
                     <div class="rating-show">
@@ -87,8 +66,23 @@
                             <textarea name="body" id="" placeholder="Ihr Kommentar"></textarea>
                             <input type="hidden" name="commentable_type" value="{{ get_class($posts) }}">
                             <input type="hidden" name="commentable_id" value="{{ $posts->id }}">
-                            <livewire:post-rating :post="$posts" />
+                            @auth
+                                <livewire:post-rating :post="$posts"/>
+                            @endauth
+                            @guest
+                                <div style="margin-top: 2px ; margin-bottom: 2px">
+                                    <a href="{{ route('login')  }}" >
+                                    <span style="color: wheat ; border: 1px solid rgba(250, 250, 250, .05)  ;
+                                    background-color: rgba(250, 250, 250, .05);
+                                     border-radius: 5px;
+                                     padding: 3px;
+                                      font-size: x-small" >
+                                        Melden Sie sich an, um zu bewerten
+                                    </span>
+                                    </a>
+                                </div>
 
+                            @endguest
                             <button type="submit">Registrieren Sie einen Kommentar</button>
                         </form>
                     </div>

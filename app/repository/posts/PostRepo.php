@@ -8,11 +8,11 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 class PostRepo
 {
 
-    public function create($value ,  $file_path, ?string $file)
+    public function create($value, $file_path, ?string $file)
     {
-        return  Post::query()->create([
+        return Post::query()->create([
             'title' => $value->title,
-            'slug' =>  SlugService::createSlug(Post::class, 'slug', $value->title) ,
+            'slug' => SlugService::createSlug(Post::class, 'slug', $value->title),
             'image' => $file_path,
             'video' => $file,
             'content' => $value->content,
@@ -24,7 +24,7 @@ class PostRepo
 
     public function confirmation($id, string $STATUS_GOOD)
     {
-        return Post::query()->where('id' , $id)->update(['status' => $STATUS_GOOD] );
+        return Post::query()->where('id', $id)->update(['status' => $STATUS_GOOD]);
     }
 
     public function getById($id)
@@ -32,7 +32,7 @@ class PostRepo
         return Post::query()->findOrFail($id);
     }
 
-    public function update( $request,  Post $id,  $file_path , $file): int
+    public function update($request, Post $id, $file_path, $file): int
     {
         return $id->update([
 //            'title' => $request->title,
@@ -48,8 +48,8 @@ class PostRepo
 
     public function getFindlanding()
     {
-        return Post::query()->where('status' , Post::STATUS_SUCCESS)
-            ->where('confirmation_post' , Post::CONFIRMATION_HEAD)
+        return Post::query()->where('status', Post::STATUS_SUCCESS)
+            ->where('confirmation_post', Post::CONFIRMATION_HEAD)
             ->latest()
             ->limit(3)
             ->get();
@@ -58,21 +58,22 @@ class PostRepo
     public function getSlugSuccess($slug)
     {
         return Post::query()
-            ->where('slug' , $slug)
+            ->where('slug', $slug)
             ->first();
     }
 
     public function rondomItem()
     {
-        return Post::query()->
-        where('confirmation_post' , 'head')
-        ->inRandomOrder()->limit(3)->get();
+        return Post::query()
+            ->where('confirmation_post', 'head')
+            ->where('status', Post::STATUS_SUCCESS)
+            ->inRandomOrder()->limit(3)->get();
     }
 
     public function rondomLanding()
     {
-        return Post::query()->
-        where('status' , Post::STATUS_SUCCESS)
+        return Post::query()
+            ->where('status', Post::STATUS_SUCCESS)
             ->withCount('comments')
             ->inRandomOrder()->paginate(30);
     }
