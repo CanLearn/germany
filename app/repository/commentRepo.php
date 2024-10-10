@@ -21,7 +21,7 @@ class commentRepo
     {
         return Comment::query()->create([
             'user_id' => auth()->id(),
-            'status' => Comment::STATUS_APPROVED ,
+            'status' => Comment::STATUS_NEW ,
             'comment_id' => array_key_exists("comment_id" , $data) ?
                 $data["comment_id"] : null,
             'body' => $data['body'],
@@ -91,5 +91,13 @@ class commentRepo
     public function notApprovedComments()
     {
         $query = Comment::query()->whereNull("comment_id")->withCount("notApprovedComments");
+    }
+
+    public function changeStatus($id , $status)
+    {
+        return Comment::query()->where('id' , $id->id)
+            ->update([
+              'status' => $status
+            ]);
     }
 }

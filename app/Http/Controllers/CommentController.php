@@ -25,6 +25,20 @@ class CommentController extends Controller
         return back();
     }
 
+    public function approved($id)
+    {
+        $id =  $this->repo->getFindId($id);
+        $this->repo->changeStatus($id , Comment::STATUS_APPROVED);
+        return back();
+    }
+
+    public function reject($id)
+    {
+        $id =  $this->repo->getFindId($id);
+        $this->repo->changeStatus($id , Comment::STATUS_REJECT);
+        return back();
+    }
+
 
     public function show(Comment $comment)
     {
@@ -46,6 +60,7 @@ class CommentController extends Controller
 
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return back();
     }
 }
