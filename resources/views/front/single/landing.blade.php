@@ -48,7 +48,6 @@
                     </h1>
                 </div>
                 <div class="image-rating imginfolg">
-                    <span>{{ number_format($posts->averageRating(), 1) }}</span>
                     <div class="rating-show">
                         @for ($i = 1; $i <= 5; $i++)
                             <span class="rating-star {{ $i <= $posts->averageRating() ? 'checked' : '' }}">

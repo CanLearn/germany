@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,11 +24,14 @@ Route::middleware(['check.role', 'role:manager', 'auth'])->name('panel.')->prefi
     Route::resource('posts', \App\Http\Controllers\PostController::class)->except('show');
     Route::resource('category', \App\Http\Controllers\CategoryController::class);
     Route::resource('tags', \App\Http\Controllers\TagController::class);
-    Route::resource('comments', \App\Http\Controllers\CommentController::class);
+    Route::resource('comments', CommentController::class);
     Route::resource('users', \App\Http\Controllers\Panel\UserController::class)->except('show');
     Route::put('/good-post/{post}', [\App\Http\Controllers\PostController::class, 'good'])->name('posts.good');
     Route::put('/reject-post/{post}', [\App\Http\Controllers\PostController::class, 'reject'])->name('posts.reject');
     Route::put('/confirm-post/{post}', [\App\Http\Controllers\PostController::class, 'confirm'])->name('posts.confirm');
-
+    Route::get('comment.approved/{comment}' , [CommentController::class , 'approved'])
+        ->name('comment-approved');
+    Route::get('comment.reject/{comment}' , [CommentController::class , 'reject'])
+        ->name('comment-reject');
 });
 require __DIR__ . '/auth.php';
