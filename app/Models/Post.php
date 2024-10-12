@@ -20,6 +20,7 @@ class Post extends Model
         'body',
         'confirmation_post',
         'status',
+        'col',
         'user_id'
         ];
 

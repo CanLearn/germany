@@ -43,7 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'post_file' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => env('APP_URL').'/',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
