@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('image')->nullable();
+            $table->integer('col');
             $table->longText('video')->nullable();
             $table->longText('content')->nullable();
             $table->longText('body')->nullable();

@@ -30,7 +30,6 @@
     <div class="sm-menu" id="menuMoSm">
         <div class="sm-menu-body">
             <ul>
-                {{--                        @foreach(\App\repository\Categories\CategoryRepo:: as $category)--}}
                 @foreach((new \App\repository\Categories\CategoryRepo())->categoryParent() as $category)
                     <li><a href="{{ route('landing.category.slug' , $category->slug )  }}">{{ $category->name  }}</a></li>
                 @endforeach
@@ -41,15 +40,18 @@
                     <div class="site-category-menu-body">
                         <nav class="category-page">
                             @foreach((new \App\repository\Categories\CategoryRepo())->categoryParent() as $category)
-                                <div class="category-page_list">
-                                    <ul>
-                                        <li class="list-title">{{ $category->name }}</li>
-                                        @foreach($category->children as $item)
-                                            <li><a href="">{{ $item->name  }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                                @if($category->children->count() > 0)
+                                    <div class="category-page_list">
+                                        <ul>
+                                            <li class="list-title">{{ $category->name  }}</li>
+                                            @foreach($category->children as $item)
+                                                <li><a href="">{{ $item->name  }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             @endforeach
+
                         </nav>
                     </div>
                 </div>
@@ -62,15 +64,18 @@
     <div class="site-category-menu-body">
         <nav class="category-page">
             @foreach((new \App\repository\Categories\CategoryRepo())->categoryParent() as $category)
-                <div class="category-page_list">
-                    <ul>
-                        <li class="list-title">{{ $category->name  }}</li>
-                        @foreach($category->children as $item)
-                            <li><a href="">{{ $item->name  }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
+                @if($category->children->count() > 0)
+                    <div class="category-page_list">
+                        <ul>
+                            <li class="list-title">{{ $category->name  }}</li>
+                            @foreach($category->children as $item)
+                                <li><a href="">{{ $item->name  }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             @endforeach
+
         </nav>
     </div>
 </div>

@@ -8,8 +8,8 @@ class Files
 {
     public function handleUploadFileArticle($file)
     {
-             $file_name = md5(Str::random(15)). '.' . $file->getClientOriginalName();
-             $file->storeAs('files/articles/video/' , $file_name) ;
+             $file_name = md5(Str::random(10)). '.' . $file->getClientOriginalName();
+             $file->storeAs('files/articles/video/' , $file_name ,  'post_file') ;
              return $file_name ;
     }
 

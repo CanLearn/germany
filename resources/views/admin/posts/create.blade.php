@@ -64,6 +64,20 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <div class="radios">
+                                        <h5>select post yo column</h5>
+                                        <label class="label_radio" for="radio-02">
+                                            <input name="col"  id="radio-02" value="1" type="radio" /> 1
+                                        </label>
+                                        <label class="label_radio" for="radio-03">
+                                            <input name="col"  id="radio-03" value="2" type="radio" /> 2
+                                        </label>
+                                        <label class="label_radio" for="radio-03">
+                                            <input name="col"  id="radio-03" value="3" type="radio" /> 3
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">upload image</label>
                                     <div class="col-sm-10">
                                         <input type="file" name="image" class="form-control" accept="image/*" />
