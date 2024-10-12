@@ -35,11 +35,22 @@
                 </div>
             </div>
             <div class="image-show">
-                <div class="image-show-box">
-                    <figure>
+                @if($posts->image)
+                    <div class="image-show-box">
+                        <figure>
                         <img src="{{ $posts->getImageUrl() }}" alt="{{ $posts->title  }}">
-                    </figure>
-                </div>
+                        </figure>
+                    </div>
+                @elseif($posts->video)
+                    <div class="image-show-box">
+                        <figure>
+                            <video autoplay loop controls>
+                                <source src="{{ $posts->getVideo() }}" type="video/mp4">
+                                {{ $posts->title }}
+                            </video>
+                        </figure>
+                    </div>
+                @endif
             </div>
             <div class="image-info">
                 <div class="image-caption imginfolg">
@@ -70,12 +81,12 @@
                             @endauth
                             @guest
                                 <div style="margin-top: 2px ; margin-bottom: 2px">
-                                    <a href="{{ route('login')  }}" >
+                                    <a href="{{ route('login')  }}">
                                     <span style="color: wheat ; border: 1px solid rgba(250, 250, 250, .05)  ;
                                     background-color: rgba(250, 250, 250, .05);
                                      border-radius: 5px;
                                      padding: 3px;
-                                      font-size: x-small" >
+                                      font-size: x-small">
                                         Melden Sie sich an, um zu bewerten
                                     </span>
                                     </a>
@@ -96,23 +107,6 @@
                                     <span>{{ $comment->created_at->diffForHumans() }}</span>
                                 </div>
                                 <div class="writer-rating">
-                                    {{--                                    <div class="rating-show">--}}
-                                    {{--                                                                      <span class="rating-star checked">--}}
-                                    {{--                                                                        ★--}}
-                                    {{--                                                                      </span>--}}
-                                    {{--                                        <span class="rating-star checked">--}}
-                                    {{--                                                                        ★--}}
-                                    {{--                                                                      </span>--}}
-                                    {{--                                        <span class="rating-star">--}}
-                                    {{--                                                                        ★--}}
-                                    {{--                                                                      </span>--}}
-                                    {{--                                        <span class="rating-star">--}}
-                                    {{--                                                                        ★--}}
-                                    {{--                                                                      </span>--}}
-                                    {{--                                        <span class="rating-star">--}}
-                                    {{--                                                                        ★--}}
-                                    {{--                                                                      </span>--}}
-                                    {{--                                    </div>--}}
                                 </div>
                                 <div class="writer-text">
                                     <p>
@@ -155,5 +149,6 @@
 
 @endsection
 @section('js')
+
     <script src="{{ asset('landing/assets/javaScript/single.js')  }}"></script>
 @endsection

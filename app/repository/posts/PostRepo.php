@@ -17,6 +17,7 @@ class PostRepo
             'video' => $file,
             'content' => $value->content,
             'body' => $value->body,
+            'col' => $value->col,
             'confirmation_post' => $value->confirmation_post,
             'user_id' => auth()->user()->id,
         ]);
@@ -41,6 +42,7 @@ class PostRepo
             'video' => $file,
             'content' => $request->content,
             'body' => $request->body,
+            'col' => $request->col,
             'confirmation_post' => $request->confirmation_post,
             'user_id' => auth()->user()->id,
         ]);

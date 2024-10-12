@@ -52,6 +52,7 @@ class PostController extends Controller
         if (!is_null($request->file('image'))) {
             $file_path = $this->images->handleUploadImageArticle($request->file('image'));
         }
+        $file_path = $file_path ?? null;
         $article = $this->postRepo->create($request, $file_path, $file);
         $this->syncCategory($request, $article, $categoryIds);
         $this->syncTagsStore($request, $article);
@@ -78,6 +79,7 @@ class PostController extends Controller
         if (!is_null($request->file('image'))) {
             $file_path = $this->images->handleUploadImageArticle($request->file('image'));
         }
+        $file_path = $file_path ?? null;
         $this->postRepo->update($request, $posts, $file_path,  $file);
         $this->syncCategory($request, $posts, $categoryIds);
         $this->sync_update_tags($request, $posts);
