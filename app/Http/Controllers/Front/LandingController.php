@@ -20,7 +20,7 @@ class LandingController extends Controller
     public function category($slug)
     {
         $categories = (new CategoryRepo())->getSlugLanding($slug);
-        $posts = $categories->posts;
+        $posts = $categories->posts()->paginate(30);
         return view('front.category.landing' ,
             compact('posts' , 'categories'));
     }

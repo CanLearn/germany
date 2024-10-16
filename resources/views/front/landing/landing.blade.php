@@ -57,6 +57,10 @@
                     @endif
                 @endforeach
             </div>
+            <div class="pagination">
+                {{ $posts->links('pagination::semantic-ui') }}
+            </div>
+
         </section>
     </main>
 @endsection
