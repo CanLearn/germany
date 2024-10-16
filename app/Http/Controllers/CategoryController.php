@@ -48,6 +48,7 @@ class CategoryController extends Controller
     {
         $category = Category::query()->where('id' , $category)->update([
             'name' => $request->name,
+            'category_id' => $request->category_id ,
             'slug' => SlugService::createSlug(Category::class, 'slug', $request->name) ,
             'user_id' => auth()->user()->id
         ]);
